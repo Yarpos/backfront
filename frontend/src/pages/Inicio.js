@@ -41,9 +41,9 @@ function Inicio() {
       .finally(() => setLoading(false));
   };
 
-  useEffect(() => {
-    cargar();
-  }, []);
+useEffect(() => {
+  cargar();
+}, [cargar]);
 
   const guardarServicio = async (payload) => {
     try {
