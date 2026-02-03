@@ -64,3 +64,4 @@ C:\Users\eduya\Desktop\DESARROLLO DE PORTALES WEB II\Primer Parcial\react\miprim
 C:\Users\eduya\Desktop\DESARROLLO DE PORTALES WEB II\Primer Parcial\react\miprimerproyecto\backend\obj\Debug\net10.0\backend.pdb
 C:\Users\eduya\Desktop\DESARROLLO DE PORTALES WEB II\Primer Parcial\react\miprimerproyecto\backend\obj\Debug\net10.0\backend.genruntimeconfig.cache
 C:\Users\eduya\Desktop\DESARROLLO DE PORTALES WEB II\Primer Parcial\react\miprimerproyecto\backend\obj\Debug\net10.0\ref\backend.dll
+C:\Users\eduya\Desktop\DESARROLLO DE PORTALES WEB II\Primer Parcial\react\miprimerproyecto\backend\obj\Debug\net10.0\backend.sourcelink.json

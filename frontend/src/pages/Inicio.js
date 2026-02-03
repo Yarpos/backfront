@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import {
   getServicios,
   crearServicio,
@@ -33,17 +33,18 @@ function Inicio() {
     setTimeout(() => setToast({ type: "", text: "" }), 3000);
   };
 
-  const cargar = () => {
+  // 👇 ENVUELTO CON useCallback (ESTE ERA EL PROBLEMA)
+  const cargar = useCallback(() => {
     setLoading(true);
     getServicios()
       .then(setServicios)
       .catch(() => showToast("error", "No se pudieron cargar los servicios."))
       .finally(() => setLoading(false));
-  };
+  }, []);
 
-useEffect(() => {
-  cargar();
-}, [cargar]);
+  useEffect(() => {
+    cargar();
+  }, [cargar]);
 
   const guardarServicio = async (payload) => {
     try {
@@ -85,7 +86,7 @@ useEffect(() => {
   const filtrados = servicios.filter((s) =>
     (s.nombre + " " + s.descripcion)
       .toLowerCase()
-      .includes(filtro.toLowerCase()),
+      .includes(filtro.toLowerCase())
   );
 
   if (loading) return <Loading />;
