@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "hsYcp8sAWxc=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\eduya\\Desktop\\DESARROLLO DE PORTALES WEB II\\Primer Parcial\\react\\miprimerproyecto\\backend\\backend.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\eduya\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.2\\microsoft.aspnetcore.openapi.10.0.2.nupkg.sha512",
+    "C:\\Users\\eduya\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
