@@ -92,7 +92,7 @@ function Inicio() {
   if (loading) return <Loading />;
 
   return (
-    <div>
+    <div className="app-container">
       <h2 className="services">Servicios TI</h2>
 
       <Toast
