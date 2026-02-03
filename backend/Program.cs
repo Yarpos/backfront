@@ -7,23 +7,24 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowReact",
-        policy => policy
+    options.AddPolicy("AllowReact", policy =>
+        policy
             .AllowAnyOrigin()
             .AllowAnyHeader()
-            .AllowAnyMethod());
+            .AllowAnyMethod()
+    );
 });
 
 var app = builder.Build();
 
-// Swagger (siempre activo para tareas)
+// Swagger (activo siempre)
 app.UseSwagger();
 app.UseSwaggerUI();
 
 // CORS
 app.UseCors("AllowReact");
 
-// Controllers SIEMPRE
+// Controllers
 app.MapControllers();
 
 // Endpoint de prueba
@@ -42,13 +43,13 @@ app.MapGet("/weatherforecast", () =>
             summaries[Random.Shared.Next(summaries.Length)]
         ))
         .ToArray();
+
     return forecast;
 })
-.WithName("GetWeatherForecast")
-.WithOpenApi();
+.WithName("GetWeatherForecast");
 
-// 🔴 CLAVE PARA RENDER (NO BORRAR)
-app.Urls.Add("http://0.0.0.0:8080");
+// ❌ NO WithOpenApi()
+// ❌ NO app.Urls.Add(...)
 
 app.Run();
 
