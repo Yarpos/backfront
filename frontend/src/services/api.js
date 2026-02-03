@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:5045/api/services";
+const BASE_URL = "https://backend-servicios-ubql.onrender.com";
 
 export async function getServicios() {
   const response = await fetch(BASE_URL);
