@@ -15,9 +15,13 @@ builder.Services.AddCors(options =>
     );
 });
 
+// 🔴 CLAVE: usar el puerto que Render asigna
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
+
 var app = builder.Build();
 
-// Swagger (activo siempre)
+// Swagger (ok dejarlo activo)
 app.UseSwagger();
 app.UseSwaggerUI();
 
@@ -28,14 +32,14 @@ app.UseCors("AllowReact");
 app.MapControllers();
 
 // Endpoint de prueba
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild",
-    "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
 app.MapGet("/weatherforecast", () =>
 {
+    var summaries = new[]
+    {
+        "Freezing", "Bracing", "Chilly", "Cool", "Mild",
+        "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+    };
+
     var forecast = Enumerable.Range(1, 5).Select(index =>
         new WeatherForecast(
             DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
@@ -45,11 +49,7 @@ app.MapGet("/weatherforecast", () =>
         .ToArray();
 
     return forecast;
-})
-.WithName("GetWeatherForecast");
-
-// ❌ NO WithOpenApi()
-// ❌ NO app.Urls.Add(...)
+});
 
 app.Run();
 
