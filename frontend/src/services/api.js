@@ -1,13 +1,13 @@
-const BASE_URL = "https://backend-servicios-ubql.onrender.com";
+const BASE_URL = process.env.REACT_APP_API_URL;
 
 export async function getServicios() {
-  const response = await fetch(BASE_URL);
+  const response = await fetch(`${BASE_URL}/servicios`);
   if (!response.ok) throw new Error("Error al cargar servicios");
   return response.json();
 }
 
 export async function crearServicio(payload) {
-  const res = await fetch(BASE_URL, {
+  const res = await fetch(`${BASE_URL}/servicios`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
@@ -22,7 +22,7 @@ export async function crearServicio(payload) {
 }
 
 export async function actualizarServicio(id, payload) {
-  const res = await fetch(`${BASE_URL}/${id}`, {
+  const res = await fetch(`${BASE_URL}/servicios/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
