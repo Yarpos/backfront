@@ -1,10 +1,12 @@
+import "../css/Inicio.css";
+
 function Toast({ type = "info", text = "", onClose }) {
   if (!text) return null;
 
   return (
-    <div style={{ margin: "10px 0", padding: 10, border: "1px solid #ccc" }}>
+    <div className="toast">
       <strong>{type.toUpperCase()}:</strong> {text}
-      <button onClick={onClose} style={{ marginLeft: 10 }}>
+      <button onClick={onClose}>
         X
       </button>
     </div>

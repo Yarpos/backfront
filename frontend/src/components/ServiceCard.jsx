@@ -2,7 +2,7 @@ import "../css/Inicio.css";
 
 function ServiceCard({ servicio, onEdit }) {
   return (
-    <div>
+    <div className="service-card">
       <h3 className="nomser">{servicio.nombre}</h3>
       <p className="nomdesc">{servicio.descripcion}</p>
 

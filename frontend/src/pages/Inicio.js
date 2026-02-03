@@ -101,15 +101,19 @@ function Inicio() {
         onClose={() => setToast({ type: "", text: "" })}
       />
 
-      <ServiceForm onGuardar={guardarServicio} loading={guardando} />
+      <div className="form-container">
+        <ServiceForm onGuardar={guardarServicio} loading={guardando} />
+      </div>
 
       <SearchBox value={filtro} onChange={setFiltro} />
 
       {filtrados.length === 0 && <p>No hay resultados</p>}
 
-      {filtrados.map((s) => (
-        <ServiceCard key={s.id} servicio={s} onEdit={abrirEdicion} />
-      ))}
+      <div className="services-container">
+        {filtrados.map((s) => (
+          <ServiceCard key={s.id} servicio={s} onEdit={abrirEdicion} />
+        ))}
+      </div>
 
       <Modal
         open={editOpen}
